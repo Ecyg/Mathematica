@@ -1,0 +1,137 @@
+In[1]:= Amat = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+
+
+Out[1]= {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+
+In[2]:= Amat
+
+Out[2]= {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+
+In[3]:= MatrixForm[Amat]
+
+Out[3]//MatrixForm= \!\(
+TagBox[
+RowBox[{"(", "", GridBox[{
+{"1", "2", "3"},
+{"4", "5", "6"},
+{"7", "8", "9"}
+},
+GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+       "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+GridBoxSpacings->{"Columns" -> {
+Offset[0.27999999999999997`], {
+Offset[0.7]}, 
+Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+Offset[0.2], {
+Offset[0.4]}, 
+Offset[0.2]}, "RowsIndexed" -> {}}], "", ")"}],
+Function[BoxForm`e$, 
+MatrixForm[BoxForm`e$]]]\)
+
+In[4]:= Eigenvalues[Amat]
+
+In[5]:= {3/2 (5 + Sqrt[33]), 3/2 (5 - Sqrt[33]), 0}
+N[%]
+
+Out[5]= {3/2 (5 + Sqrt[33]), 3/2 (5 - Sqrt[33]), 0}
+
+Out[6]= {16.1168, -1.11684, 0.}
+
+In[8]:= (*% means the previous output*)
+(*This is a comment*)
+(*So far, this is pretty simple. N means "numerical" as opposed to \
+symbolic*)
+(*Whenever you wanna reuse an output, give it a name/look at the \
+name, like this*)
+out1 = Eigenvalues[Amat]
+N[out1]
+
+
+Out[8]= {3/2 (5 + Sqrt[33]), 3/2 (5 - Sqrt[33]), 0}
+
+{16.116843969807043`, -1.116843969807043`, 0.`}
+
+(*How to find the determinant*)
+
+In[10]:= Det[Amat]
+
+Out[10]= 0
+
+In[11]:= (* How to find the inverse of a matrix*)
+Inverse[Amat]
+
+During evaluation of In[11]:= Inverse::sing
+
+Out[11]= Inverse[{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}]
+
+(* This particular example does not exist*)
+
+In[12]:= (* How about Eigenvectors? *)
+Eigenvectors[Amat]
+
+Out[12]= {{-((-15 - Sqrt[33])/(33 + 7 Sqrt[33])), (4 (6 + Sqrt[33]))/(
+  33 + 7 Sqrt[33]), 1}, {-((15 - Sqrt[33])/(-33 + 7 Sqrt[33])), (
+  4 (-6 + Sqrt[33]))/(-33 + 7 Sqrt[33]), 1}, {1, -2, 1}}
+
+In[13]:= N[%]
+
+Out[13]= {{0.283349, 0.641675, 1.}, {-1.28335, -0.141675, 
+  1.}, {1., -2., 1.}}
+
+(* You can see that I tried to find the numerical answer to the \
+previous output*)
+
+In[14]:= out2 = Eigenvectors[Amat]
+out2
+
+Out[14]= {{-((-15 - Sqrt[33])/(33 + 7 Sqrt[33])), (4 (6 + Sqrt[33]))/(
+  33 + 7 Sqrt[33]), 1}, {-((15 - Sqrt[33])/(-33 + 7 Sqrt[33])), (
+  4 (-6 + Sqrt[33]))/(-33 + 7 Sqrt[33]), 1}, {1, -2, 1}}
+
+Out[15]= {{-((-15 - Sqrt[33])/(33 + 7 Sqrt[33])), (4 (6 + Sqrt[33]))/(
+  33 + 7 Sqrt[33]), 1}, {-((15 - Sqrt[33])/(-33 + 7 Sqrt[33])), (
+  4 (-6 + Sqrt[33]))/(-33 + 7 Sqrt[33]), 1}, {1, -2, 1}}
+
+(* Selecting a single section from the matrix*)
+eigenvector1 = out2[[1]]
+
+In[17]:= {-((-15 - Sqrt[33])/(33 + 7 Sqrt[33])), (4 (6 + Sqrt[33]))/(
+ 33 + 7 Sqrt[33]), 1}
+Norm[eigenvector1]
+
+Out[17]= {-((-15 - Sqrt[33])/(33 + 7 Sqrt[33])), (4 (6 + Sqrt[33]))/(
+ 33 + 7 Sqrt[33]), 1}
+
+Out[18]= Sqrt[1 + (
+ 16 (6 + Sqrt[33])^2)/(33 + 7 Sqrt[33])^2 + (15 + Sqrt[33])^2/(33 + 
+   7 Sqrt[33])^2]
+
+In[19]:= N[Norm[eigenvector1]]
+
+Out[19]= 1.22149
+
+In[20]:= v3 = out2[[3]]
+
+Out[20]= {1, -2, 1}
+
+In[21]:= N[Norm[v3]]
+
+In[24]:= 2.449489742783178`
+
+(* You can sum things too*)
+Sum[1/i^6, (i, 1, Infinity)]
+
+Out[24]= 2.44949
+
+In[25]:= \!\(
+\*UnderoverscriptBox[\(\[Sum]\), \(i = 1\), \(n\)]\(i^2\)\)
+
+Out[25]= 1/6 n (1 + n) (1 + 2 n)
+
+
+
+
+
+
+
